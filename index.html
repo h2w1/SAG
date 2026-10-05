@@ -1,132 +1,1338 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 수정 1: 브라우저 탭에 표시할 제목 -->
-  <title>SAG | 프로젝트 소개</title>
-  <meta name="description" content="SAG 프로젝트 소개 페이지입니다.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAG</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
-    :root { --bg:#faf9f6; --ink:#202b36; --muted:#65707b; --line:#e4e5e0; --accent:#27634c; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; scroll-padding-top:90px; }
-    body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.75; }
-    a { color:inherit; text-decoration:none; }
-    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
-    .wrap { width:min(1080px,calc(100% - 48px)); margin:auto; }
-    header { background:var(--bg); border-bottom:1px solid var(--line); }
-    .nav { min-height:80px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .brand { font-size:24px; font-weight:800; letter-spacing:-1px; }
-    nav { display:flex; gap:28px; font-size:14px; color:var(--muted); }
-    nav a:hover { color:var(--accent); }
-    .hero { padding:96px 0 76px; }
-    .eyebrow { color:var(--accent); font-size:12px; letter-spacing:3px; font-weight:700; text-transform:uppercase; }
-    h1 { margin:20px 0; font-size:clamp(42px,6vw,72px); line-height:1.15; letter-spacing:-2px; font-weight:750; }
-    .lead { max-width:680px; color:var(--muted); font-size:19px; }
-    .authors { margin-top:28px; color:var(--muted); font-size:14px; }
-    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
-    .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:8px; padding:11px 22px; font-size:14px; font-weight:650; }
-    .button.primary { background:var(--accent); color:white; border-color:var(--accent); }
-    .button:hover { opacity:.8; }
-    .visual { min-height:300px; padding:40px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; border:1px dashed #b9c5bc; border-radius:14px; background:#edf1eb; color:#6b7e71; text-align:center; }
-    .visual .symbol { font-size:48px; font-weight:300; line-height:1; }
-    .visual strong { color:#3b5546; font-size:18px; }
-    .visual span { max-width:520px; font-size:14px; }
-    section { padding:64px 0; border-bottom:1px solid var(--line); }
-    .section-head { display:flex; gap:18px; align-items:baseline; margin-bottom:22px; }
-    .number { color:var(--accent); font-size:12px; font-weight:700; letter-spacing:1px; }
-    h2 { margin:0; font-size:28px; letter-spacing:-.6px; }
-    p { margin:0 0 16px; }
-    .copy { max-width:800px; color:var(--muted); }
-    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .card { background:white; border:1px solid var(--line); border-radius:12px; padding:28px; }
-    .card h3 { font-size:18px; margin:0 0 12px; }
-    .card p { margin:0; color:var(--muted); font-size:14px; }
-    .resources { display:grid; gap:12px; }
-    .resource { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px 24px; background:white; border:1px solid var(--line); border-radius:10px; }
-    .resource span { color:var(--muted); font-size:13px; }
-    .resource:hover { border-color:var(--accent); }
-    footer { padding:32px 0; color:var(--muted); font-size:13px; }
-    .foot { display:flex; justify-content:space-between; gap:20px; }
-    @media(max-width:700px) {
-      .wrap { width:calc(100% - 36px); }
-      .nav { min-height:72px; gap:16px; }
-      nav { gap:16px; font-size:12px; }
-      .hero { padding:64px 0 48px; }
-      .lead { font-size:17px; }
-      .visual { min-height:220px; padding:28px; }
-      section { padding:44px 0; }
-      .cards { grid-template-columns:1fr; }
-      .resource,.foot { align-items:flex-start; flex-direction:column; gap:6px; }
+    :root{
+      --primary-color:#2b1b3a;
+      --accent-color:#8b5cf6;
+      --accent-strong:#7c3aed;
+
+      --text-color:#2a2430;
+      --max-width:980px;
+
+      --border-color:rgba(233,213,255,.90);
+      --border-color-2:rgba(233,213,255,.55);
+
+      --shadow-card:0 14px 30px rgba(17, 8, 25, 0.06), 0 12px 28px rgba(124, 58, 237, 0.08);
+      --shadow-soft:0 10px 24px rgba(124, 58, 237, 0.08);
+      --shadow-hover:0 18px 36px rgba(124, 58, 237, 0.12);
     }
-    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+    html{ scroll-behavior:smooth; }
+
+    body{
+      font-family:'Inter', sans-serif;
+      line-height:1.6;
+      color:var(--text-color);
+      margin:0;
+      padding:0;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+
+      /* subtle unicorn */
+      background:
+        radial-gradient(900px 460px at 50% -140px, rgba(196,181,253,.22), rgba(255,255,255,0) 62%),
+        #ffffff;
+    }
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:2.4rem 1.25rem;
+    }
+
+    header{
+      text-align:center;
+      padding:3.0rem 0 1.6rem;
+      border-bottom:1px solid var(--border-color);
+    }
+
+    h1{
+      font-size:2.15rem;
+      font-weight:900;
+      color:var(--primary-color);
+      margin:0 0 .75rem;
+      line-height:1.15;
+      letter-spacing:-0.02em;
+    }
+
+    .authors{
+      font-size:1.05rem;
+      color:rgba(43, 27, 58, 0.78);
+      margin-bottom:0.25rem;
+    }
+
+    a{ color:var(--accent-strong); text-decoration:none; }
+    a:hover{ color:#5b21b6; }
+
+    .links{
+      display:flex;
+      justify-content:center;
+      gap:.85rem;
+      flex-wrap:wrap;
+      margin-top:1.25rem;
+    }
+
+    .btn{
+      background:linear-gradient(135deg, var(--accent-color), var(--accent-strong));
+      color:#fff;
+      padding:.62rem 1.25rem;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.95rem;
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      border:1px solid rgba(233,213,255,.55);
+      box-shadow:0 12px 22px rgba(124, 58, 237, 0.18);
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(124, 58, 237, 0.24);
+      filter:saturate(1.05);
+    }
+
+    .btn-disabled{
+      background:rgba(245,243,255,.92);
+      color:#6b21a8;
+      border:1px solid var(--border-color);
+      box-shadow:none;
+      pointer-events:none;
+      filter:none;
+    }
+
+    /* Sticky nav */
+    .jump{
+      position:sticky;
+      top:0;
+      z-index:60;
+      display:flex;
+      gap:.6rem;
+      justify-content:center;
+      flex-wrap:wrap;
+      padding:.72rem 0;
+      margin:0;
+
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+
+      border-bottom:1px solid var(--border-color);
+    }
+
+    .jump a{
+      font-weight:800;
+      font-size:.92rem;
+      color:#5b21b6;
+      padding:.34rem .72rem;
+      border-radius:999px;
+      border:1px solid var(--border-color);
+      background:rgba(250,245,255,.72);
+      transition:transform .15s ease, background .15s ease;
+    }
+
+    .jump a:hover{
+      background:rgba(237,233,254,.78);
+      transform:translateY(-1px);
+    }
+
+    section{ scroll-margin-top:78px; padding:1.55rem 0; }
+
+    /* Quick cards */
+    .quick-section{ padding:1.7rem 0 .2rem; }
+    .quick-grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:1rem;
+      margin:0;
+    }
+    .quick-card{
+      display:block;
+      padding:0;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid var(--border-color-2);
+      background:transparent;
+      box-shadow:0 8px 18px rgba(124,58,237,0.06);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      aspect-ratio: 4/3;
+    }
+    .quick-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 30px rgba(17, 8, 25, 0.06);
+    }
+
+    /* Make images fill the quick-card fully (no inner border/shadow) */
+    .quick-card .figure-img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      border-radius:inherit;
+      border:none;
+      box-shadow:none;
+    }
+    .quick-title{
+      font-weight:900;
+      color:var(--primary-color);
+      margin-bottom:.35rem;
+      letter-spacing:-0.01em;
+    }
+    .quick-desc{
+      color:rgba(43, 27, 58, 0.70);
+      font-size:.92rem;
+      line-height:1.45;
+    }
+
+    /* Section cards */
+    .section-card{
+      border:1px solid var(--border-color);
+      border-radius:18px;
+      padding:1.55rem;
+      background:
+        radial-gradient(900px 260px at 50% -90px, rgba(196,181,253,.16), rgba(255,255,255,0) 62%),
+        rgba(255,255,255,.90);
+      box-shadow:var(--shadow-card);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+
+    .block-title{
+      margin:0 0 1rem;
+      font-size:1.5rem;
+      text-align:center;
+      font-weight:900;
+      color:var(--primary-color);
+      letter-spacing:-0.01em;
+    }
+    .block-title::after{
+      content:"";
+      display:block;
+      width:92px;
+      height:3px;
+      margin:.55rem auto 0;
+      border-radius:999px;
+      background:linear-gradient(
+        90deg,
+        rgba(139,92,246,.20),
+        rgba(236,72,153,.16),
+        rgba(139,92,246,.20)
+      );
+      box-shadow:0 7px 18px rgba(124,58,237,.10);
+    }
+
+    h3{
+      font-size:1.2rem;
+      color:rgba(43, 27, 58, 0.92);
+      margin-top:1.55rem;
+      margin-bottom:.85rem;
+      font-weight:900;
+      letter-spacing:-0.01em;
+    }
+
+    p{
+      font-size:1.03rem;
+      text-align:justify;
+      margin:0 0 .95rem;
+      color:rgba(42, 36, 48, 0.90);
+      line-height:1.72;
+    }
+
+    .abstract-container{
+      background:
+        radial-gradient(820px 220px at 50% 0%, rgba(233,213,255,.20) 0%, rgba(255,255,255,0) 55%),
+        rgba(251,249,255,.92);
+      border:1px solid rgba(233,213,255,.82);
+      border-radius:16px;
+      padding:1.55rem;
+      box-shadow:var(--shadow-soft);
+    }
+
+    /* Contributions list */
+    .comparison-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    .comparison-list li{
+      margin-bottom:1.05rem;
+      padding:1.15rem 1.15rem 1.15rem 1.35rem;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(233,213,255,.82);
+      border-radius:16px;
+      box-shadow:0 10px 22px rgba(124, 58, 237, 0.06);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    /* Make strong headings inside comparison list slightly larger for emphasis */
+    .comparison-list li strong{
+      font-size:1.2rem;
+      line-height:1.35;
+      font-weight:900;
+      display:block;
+      margin-bottom:0.45rem;
+      color:var(--primary-color);
+    }
+    .comparison-list li::before{
+      content:"";
+      position:absolute;
+      left:0; top:0;
+      width:5px; height:100%;
+      background:linear-gradient(180deg, var(--accent-color), var(--accent-strong));
+      opacity:.92;
+    }
+    .comparison-list li:hover{
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-hover);
+      border-color:rgba(216,180,254,.95);
+    }
+
+    /* Figures */
+    .figure-container{ margin:1.05rem 0 0; text-align:center; }
+    .figure-img{
+      max-width:100%;
+      height:auto;
+      border-radius:16px;
+      border:1px solid var(--border-color-2);
+      box-shadow:var(--shadow-soft);
+    }
+    /* Reduce size for images inside contribution list to avoid overly large figures */
+    .comparison-list li .figure-img{
+      max-width:480px;
+      width:100%;
+      height:auto;
+      display:block;
+      margin:0.6rem auto 0.6rem auto;
+      border-radius:12px;
+      box-shadow:var(--shadow-soft);
+    }
+    .zoomable{ cursor:zoom-in; }
+    .caption{
+      margin-top:.9rem;
+      font-size:.98rem;
+      color:rgba(43, 27, 58, 0.64);
+      text-align:left;
+      max-width:920px;
+      margin-left:auto;
+      margin-right:auto;
+      line-height:1.55;
+    }
+
+    /* Figure grid (Multi-Square-ish) */
+    .figure-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:1rem;
+      margin-top:1rem;
+    }
+    .figure-card{
+      border:1px solid rgba(233,213,255,.82);
+      border-radius:16px;
+      background:rgba(255,255,255,.92);
+      box-shadow:0 10px 22px rgba(124, 58, 237, 0.06);
+      overflow:hidden;
+    }
+    .figure-card .pad{ padding:1rem; }
+    .figure-card .mini-caption{
+      font-size:.95rem;
+      color:rgba(43, 27, 58, 0.68);
+      line-height:1.45;
+      margin-top:.6rem;
+      text-align:left;
+    }
+
+    /* Math block */
+    .math-block{
+      background:rgba(255,255,255,.94);
+      padding:1rem;
+      border-radius:14px;
+      border:1px solid rgba(233,213,255,.82);
+      margin:1.2rem 0 1.4rem;
+      text-align:center;
+      overflow-x:auto;
+      box-shadow:0 8px 18px rgba(124, 58, 237, 0.06);
+    }
+
+    /* Tables */
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:1.1rem 0 0;
+      font-size:.92rem;
+      background:rgba(255,255,255,.94);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 8px 16px rgba(124, 58, 237, 0.05);
+    }
+    
+    .results-table {
+      font-size:.92rem;
+      padding:0;
+    }
+    .results-table{
+      border:1px solid rgba(233,213,255,.82);
+      box-shadow:var(--shadow-card);
+    }
+    th, td{
+      padding:14px 16px;
+      text-align:left;
+      border-bottom:1px solid rgba(233,213,255,.45);
+    }
+    th{
+      background:linear-gradient(180deg, rgba(250,245,255,.88), rgba(255,255,255,.96));
+      font-weight:900;
+      color:var(--primary-color);
+    }
+    tr:last-child td{ border-bottom:none; }
+    .highlight-row{ background-color:rgba(245,243,255,.92); }
+    .highlight-row td{ font-weight:800; color:var(--primary-color); }
+
+    /* Tab controls for tables */
+    .table-tabs{
+      display:flex;
+      gap:0.8rem;
+      margin-bottom:1.2rem;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .table-tab-btn{
+      padding:0.6rem 1.2rem;
+      background:rgba(255,255,255,.92);
+      border:1px solid rgba(233,213,255,.82);
+      border-radius:999px;
+      font-weight:800;
+      font-size:.95rem;
+      color:rgba(43, 27, 58, 0.70);
+      cursor:pointer;
+      transition:all .18s ease;
+    }
+    .table-tab-btn:hover{
+      background:rgba(245,243,255,.92);
+      border-color:rgba(216,180,254,.95);
+    }
+    .table-tab-btn.active{
+      background:linear-gradient(135deg, var(--accent-color), var(--accent-strong));
+      color:#fff;
+      border:1px solid var(--accent-strong);
+      box-shadow:0 8px 18px rgba(124, 58, 237, 0.15);
+    }
+    .table-content{
+      display:none;
+    }
+    .table-content.active{
+      display:block;
+    }
+
+    /* Model Results Container */
+    .model-results {
+      margin-bottom:2.5rem;
+      border-radius:16px;
+      background:rgba(255,255,255,.70);
+      padding:1.5rem;
+      border:1px solid rgba(233,213,255,.60);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .model-title {
+      font-size:1.4rem;
+      font-weight:900;
+      color:var(--primary-color);
+      margin:0 0 1.5rem 0;
+      padding-bottom:0.8rem;
+      border-bottom:2px solid var(--accent-color);
+    }
+
+    /* Table row styling for model separation */
+    .results-table tbody tr:not(.group-row) {
+      border-top:1px solid rgba(233,213,255,.30);
+    }
+    .results-table tbody tr.divider{
+      border-top:2px solid rgba(196,181,253,.40);
+    }
+    .results-table tbody tr.ours{
+      border-top:2px solid var(--accent-color);
+      border-bottom:3px solid rgba(196,181,253,.40);
+      background:rgba(250,245,255,.50);
+    }
+    .results-table tbody tr.group-row {
+      height:1.2rem;
+      border:none !important;
+    }
+    .results-table tbody tr.group-row td {
+      padding:0.6rem 16px;
+      font-size:.95rem;
+      font-weight:900;
+      color:var(--primary-color);
+      border:none;
+      background:linear-gradient(90deg, rgba(196,181,253,.10), rgba(139,92,246,.06));
+      border-top:3px solid rgba(196,181,253,.60) !important;
+      border-bottom:1px solid rgba(196,181,253,.50) !important;
+    }
+    .results-table tbody tr.group-row:first-of-type td {
+      border-top:none !important;
+    }
+
+    /* Compact table styling */
+    .table-wrap {
+      margin-top: 1.2rem;
+      overflow-x: auto;
+    }
+    .results-table {
+      font-size:.92rem;
+    }
+    .results-table th, .results-table td {
+      padding:10px 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .results-table th.left, .results-table td.left {
+      white-space: normal;
+    }
+
+    /* Details (collapsible) */
+    details{
+      margin-top:1rem;
+      border:1px solid rgba(233,213,255,.82);
+      border-radius:14px;
+      background:rgba(255,255,255,.92);
+      box-shadow:0 10px 22px rgba(124, 58, 237, 0.06);
+      overflow:hidden;
+    }
+    summary{
+      cursor:pointer;
+      padding:1rem 1.1rem;
+      font-weight:900;
+      color:var(--primary-color);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details .details-body{ padding:0 1.1rem 1.1rem; color:rgba(43, 27, 58, 0.75); }
+    details table{ width:95%; margin: 1.2rem auto 0; border-collapse:collapse; min-width:600px; font-size:0.92rem; border-radius:16px; border:1px solid rgba(233,213,255,.82); box-shadow:var(--shadow-card); background:rgba(255,255,255,.94); overflow:hidden; }
+    details table th, details table td{ padding:12px 14px; border-bottom:1px solid rgba(233,213,255,.45); vertical-align:middle; text-align:center; white-space:nowrap; }
+    details table thead th{ background:linear-gradient(180deg, rgba(250,245,255,.88), rgba(255,255,255,.96)); font-weight:900; color:var(--primary-color); }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(17, 8, 25, 0.72);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:999;
+    }
+    .lightbox img{
+      max-width:min(1200px, 92vw);
+      max-height:86vh;
+      border-radius:18px;
+      box-shadow:0 24px 60px rgba(0,0,0,.35);
+      border:1px solid rgba(233,213,255,.35);
+    }
+
+    footer{
+      margin-top:2.2rem;
+      text-align:center;
+      padding:1.4rem 0 2.0rem;
+      font-size:.9rem;
+      color:rgba(43, 27, 58, 0.55);
+      border-top:1px solid var(--border-color);
+    }
+
+    @media (max-width:980px){
+      .quick-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .figure-grid{ grid-template-columns:1fr; }
+    }
+    @media (max-width:520px){
+      h1{ font-size:1.75rem; }
+      .container{ padding:1.7rem 1rem; }
+      .section-card{ padding:1.15rem; }
+      .abstract-container{ padding:1.15rem; }
+      .quick-grid{ grid-template-columns:1fr; }
+      th, td{ padding:12px 12px; }
+    }
+    /* ---- Results mega-table ---- */
+    .table-wrap{
+      margin-top: 1.2rem;
+      margin-left: auto;
+      margin-right: auto;
+      overflow-x: auto;
+      border-radius: 16px;
+      border: 1px solid rgba(233,213,255,.82);
+      box-shadow: var(--shadow-card);
+      background: transparent;
+      width: 95%;
+      max-width: 1200px;
+    }
+
+    .results-table{
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px; /* force nice layout; scroll on small screens */
+      font-size: 0.92rem;
+    }
+
+    .results-table th,
+    .results-table td{
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(233,213,255,.45);
+      vertical-align: middle;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .results-table thead th{
+      background: linear-gradient(180deg, rgba(250,245,255,.88), rgba(255,255,255,.96));
+      font-weight: 900;
+      color: var(--primary-color);
+    }
+
+    .results-table th.left,
+    .results-table td.left{
+      text-align: center;
+    }
+
+    .results-table .subhead{
+      font-weight: 900;
+      color: rgba(43,27,58,.88);
+    }
+
+    .results-table .group-row td{
+      background: rgba(250,245,255,.70);
+      font-weight: 900;
+      color: var(--primary-color);
+      border-bottom: 1px solid rgba(233,213,255,.55);
+    }
+
+    .results-table .ours{
+      background: rgba(237,233,254,.92);
+      font-weight: 900;
+    }
+
+    .results-table .ours td,
+    .results-table .ours th{
+      background: rgba(237,233,254,.92);
+    }
+
+    .results-table .muted{
+      color: rgba(43,27,58,.72);
+      font-weight: 700;
+    }
+
+    .results-table .best{
+      font-weight: 900;
+    }
+
+    .results-table .divider td{
+      border-bottom: 2px solid rgba(233,213,255,.85);
+    }
+
+    .table-note{
+      margin-top: .75rem;
+      font-size: .95rem;
+      color: rgba(43,27,58,.68);
+      line-height: 1.45;
+    }
+
+    /* --- Case study code card --- */
+    .case-card{
+      position: relative;
+      z-index: 2;
+      margin-top: 0.8rem;
+
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.60);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.82));
+      box-shadow: 0 18px 34px rgba(124,58,237,.10), inset 0 1px 0 rgba(255,255,255,.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      overflow: hidden;
+    }
+
+    .case-head{
+      padding: 0.95rem 1.05rem 0.75rem;
+      border-bottom: 1px solid rgba(233,213,255,.40);
+    }
+
+    .case-title{
+      margin: 0;
+      font-weight: 900;
+      color: var(--primary-color);
+      letter-spacing: -0.01em;
+    }
+
+    .case-subtitle{
+      margin: 0.35rem 0 0;
+      color: rgba(43,27,58,.70);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .case-body{
+      padding: 0.95rem 1.05rem 1.05rem;
+    }
+
+    .case-pre{
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      line-height: 1.55;
+      font-size: 0.90rem;
+      color: rgba(35,24,50,.92);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .hl{
+      display: block;
+      margin: 0.75rem 0;
+      padding: 0.75rem 0.85rem;
+      border-radius: 12px;
+
+      background: rgba(253, 230, 138, .28); /* soft yellow */
+      border: 1px solid rgba(252, 211, 77, .45);
+      box-shadow: 0 10px 18px rgba(124,58,237,.08), inset 0 1px 0 rgba(255,255,255,.55);
+
+      color: rgba(43,27,58,.92);
+    }
+
+    .case-actions{
+      display: flex;
+      gap: .6rem;
+      flex-wrap: wrap;
+      padding: 0.85rem 1.05rem 1.05rem;
+      border-top: 1px solid rgba(233,213,255,.40);
+      background: rgba(250,245,255,.45);
+    }
+
+    .chip{
+      font-size: 0.86rem;
+      font-weight: 900;
+      padding: .34rem .65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.65);
+      background: rgba(255,255,255,.70);
+      color: rgba(43,27,58,.78);
+      box-shadow: 0 8px 16px rgba(124,58,237,.06), inset 0 1px 0 rgba(255,255,255,.65);
+    }
+
+    /* Optional: nicer details summary spacing */
+    details.case-details summary{
+      padding: 1rem 1.1rem;
+      font-weight: 900;
+      color: var(--primary-color);
+    }
+    details.case-details .details-body{
+      padding: 0 1.1rem 1.1rem;
+    }
+
+        
   </style>
 </head>
-<body id="top">
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="SAG 홈">SAG<span style="color:var(--accent)">.</span></a>
-      <nav aria-label="주요 메뉴">
-        <a href="#overview">프로젝트 소개</a>
-        <a href="#highlights">주요 내용</a>
-        <a href="#resources">자료</a>
-      </nav>
-    </div>
-  </header>
-  <main class="wrap">
-    <div class="hero">
-      <div class="eyebrow">SAG · Project Website</div>
-      <!-- 수정 2: 프로젝트 이름, 한 줄 소개, 이름과 소속 -->
-      <h1>프로젝트 제목을<br>입력하세요.</h1>
-      <p class="lead">프로젝트를 한두 문장으로 소개해 주세요. 어떤 문제를 해결하고, 어떤 아이디어를 제안하는지 적으면 좋습니다.</p>
-      <p class="authors">이름 1 · 이름 2 · 이름 3<br>소속 / 기관명을 입력하세요</p>
-      <div class="actions">
-        <a class="button primary" href="#overview">프로젝트 살펴보기 ↗</a>
-        <a class="button" href="https://github.com/h2w1/SAG">GitHub ↗</a>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Selective Critique for Cost-Aware LLM Agents in Long-Horizon Decision Making</h1>
+      <!-- TODO: Add author names and affiliations. -->
+      <div class="authors">Authors &amp; affiliations [TBD]</div>
+
+      <div class="links">
+        <!-- TODO: Add the paper URL and remove the btn-disabled class. -->
+        <a href="#" class="btn btn-disabled" aria-disabled="true">📄 Paper [TBD]</a>
+        <!-- TODO: Add the public code repository URL and remove the btn-disabled class. -->
+        <a href="#" class="btn btn-disabled" aria-disabled="true" target="_blank" rel="noopener">💻 Code [TBD]</a>
       </div>
-    </div>
-    <!-- 수정 3: 이 영역을 <img src="./assets/overview.png" alt="프로젝트 개요" style="width:100%;border-radius:14px;">로 교체할 수 있습니다. -->
-    <div class="visual" role="img" aria-label="프로젝트 대표 이미지 자리">
-      <div class="symbol" aria-hidden="true">＋</div>
-      <strong>프로젝트 대표 이미지</strong>
-      <span>대표 이미지, 방법 개요 그림 또는 데모 화면을 넣을 자리입니다.</span>
-    </div>
+    </header>
+
+    <nav class="jump" aria-label="Section navigation">
+      <a href="#abstract">Abstract</a>
+      <a href="#overview">Overview</a>
+      <a href="#contribution">Contributions</a>
+      <a href="#method">Method</a>
+      <a href="#video">Video</a>
+      <a href="#results">Results</a>
+      <a href="#ablation-study">Ablation Study</a>
+      <a href="#case-study">Case Study</a>
+    </nav>
+
+    <!-- QUICK CARDS
+    <section class="quick-section">
+      <div class="quick-grid" aria-label="Quick links">
+        <div class="quick-card">
+          <div class="quick-title">What is SAG?</div>
+          <div class="quick-desc">
+            A self-improving LLM agent that invokes critique selectively, optimizing the success–cost trade-off in long-horizon environments.
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <div class="quick-title">Framework</div>
+          <div class="quick-desc">
+            Actor → ambiguity → gated critique → action; successful trajectories are stored for periodic online fine-tuning.
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <div class="quick-title">Key Mechanism</div>
+          <div class="quick-desc">
+            VoI-inspired decision rule using global entropy and local top-2 margin from the actor’s action distribution.
+          </div>
+        </div>
+
+        <div class="quick-card">
+          <div class="quick-title">Why it matters</div>
+          <div class="quick-desc">
+            Strong success with token budgets close to no-critique agents by avoiding unnecessary critic calls.
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ABSTRACT -->
+    <section id="abstract">
+      <div class="section-card">
+        <h2 class="block-title">Abstract</h2>
+
+        <div class="abstract-container">
+          <p>
+            Improving the reliability of large language model (LLM) agents in long-horizon decision-making remains a key challenge. 
+            When deployed as autonomous agents interacting with complex environments, early mistakes can propagate through trajectories and cause cascading failures.
+            Recent approaches improve reliability by incorporating external critique or deliberation, 
+            but invoking these mechanisms at every step substantially increases token consumption and latency, 
+            limiting practical deployment. We propose <strong>SAG</strong> (<strong>S</strong>elf-improving <strong>A</strong>gent with <strong>G</strong>ated critique), 
+            a cost-aware framework that formulates critique invocation as a step-wise decision problem during long-horizon interaction.
+            SAG introduces a lightweight, training-free gating mechanism that estimates the utility of critique using action-level ambiguity signals—global entropy and local top-2 margin—computed over admissible actions. 
+            From a decision-theoretic perspective, this mechanism approximates the Value of Information (VoI) of critique, 
+            enabling the agent to selectively allocate expensive feedback only when its expected benefit justifies the cost. 
+            SAG further incorporates online bootstrapped self-improvement, allowing the actor to internalize critic-assisted behaviors and progressively reduce reliance on critique.
+            Across three long-horizon interactive benchmarks and multiple backbone models, 
+            SAG substantially improves the success–cost trade-off compared with both no-critique and always-on critique agents. 
+            On ALFWorld, SAG increases task success from 24.6% to 78.3% while maintaining a token budget comparable to ReAct, 
+            yielding a 3.1&times improvement in normalized token efficiency. Moreover, a 7B actor with a lightweight 3B critic achieves performance comparable to a 14B actor without critique,
+            showing that selective critique can recover most of the reliability benefits of deliberation while dramatically reducing inference cost.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW -->
     <section id="overview">
-      <div class="section-head"><span class="number">01</span><h2>프로젝트 소개</h2></div>
-      <!-- 수정 4: 프로젝트 설명 또는 논문 초록 -->
-      <div class="copy">
-        <p>여기에 프로젝트 소개 또는 논문 초록을 입력하세요. 연구 배경, 해결하려는 문제, 제안하는 접근 방법을 설명할 수 있습니다.</p>
-        <p>이 페이지는 내용을 채워 넣기 위한 더미 템플릿입니다. 아래 제목과 문단을 프로젝트에 맞게 수정해 주세요.</p>
+      <div class="section-card">
+        <h2 class="block-title">Overview of Our Framework</h2>
+
+        <div class="figure-container">
+          <img src="figure/SAG_overview.PNG" alt="Framework Overview" class="figure-img zoomable">
+          <div class="caption">
+            The actor selectively invokes the critic based on action ambiguity. 
+            Successful critique-guided trajectories are stored for fine-tuning, enabling the actor to gradually reduce critique reliance while maintaining performance.            
+          </div>
+        </div>
       </div>
     </section>
-    <section id="highlights">
-      <div class="section-head"><span class="number">02</span><h2>주요 내용</h2></div>
-      <!-- 수정 5: 주요 아이디어 또는 기여 세 가지 -->
-      <div class="cards">
-        <article class="card"><h3>핵심 아이디어 1</h3><p>첫 번째 핵심 아이디어 또는 프로젝트의 특징을 설명해 주세요.</p></article>
-        <article class="card"><h3>핵심 아이디어 2</h3><p>제안한 방법이나 구현의 특징을 설명해 주세요.</p></article>
-        <article class="card"><h3>핵심 아이디어 3</h3><p>주요 결과 또는 기대 효과를 설명해 주세요.</p></article>
+
+    <!-- CONTRIBUTIONS -->
+    <section id="contribution">
+      <div class="section-card">
+        <h2 class="block-title">Key Contributions</h2>
+
+        <ul class="comparison-list">
+        <li>
+          <strong>Strong Success–Cost Trade-off</strong><br>
+          <div style="display: flex; gap: 1.2rem; justify-content: center; align-items: center; flex-wrap: wrap; margin: 1rem 0;">
+            <img src="figure/updated_chart_alpha.png" alt="success-cost trade-off" class="figure-img zoomable" style="max-width: 400px; flex: 1; min-width: 280px;">
+            <img src="figure/token_efficiency.png" alt="token efficiency" class="figure-img zoomable" style="max-width: 400px; flex: 1; min-width: 280px;">
+          </div>
+          SAG achieves a strong success-cost trade-off, maintaining high success rates while using tokens efficiently. This enables performance comparable to always-on critique with a token budget close to no-critique agents.
+        </li>
+
+        <li>
+          <strong>Lightweight Ambiguity via a VoI Perspective</strong><br>
+          SAG grounds critique decisions in a value-of-information framework
+          using lightweight ambiguity signals derived from the actor’s action distribution.
+          Global entropy and local top-2 margin provide a principled, low-cost gating rule
+          without requiring additional models or supervision.
+        </li>
+
+        <li>
+          <strong>Online Bootstrapping through Self-Improvement</strong><br>
+          <!-- QUICK CARDS -->
+            <section class="quick-section">
+              <div class="quick-grid" aria-label="Quick links">
+                <div class="quick-card">
+                  <img src="figure/fig_success_rate.png" alt="success-cost trade-off" class="figure-img zoomable">
+                  <div class="quick-desc">
+                  </div>
+                </div>
+
+                <div class="quick-card">
+                  <img src="figure/fig_critic_calls.png" alt="success-cost trade-off" class="figure-img zoomable">
+                  <div class="quick-desc">
+                  </div>
+                </div>
+
+                <div class="quick-card">
+                  <img src="figure/fig_success_vs_failure.png" alt="success-cost trade-off" class="figure-img zoomable"><div class="quick-desc">
+                  </div>
+                </div>
+
+                <div class="quick-card">
+                  <img src="figure/fig_seen_before_after.png" alt="success-cost trade-off" class="figure-img zoomable"><div class="quick-desc">
+                  </div>
+                </div>
+              </div>
+            </section>SAG learns from successful critique-guided trajectories, progessively reducing critic usage over time
+                      while improving success rates. This demonstrates token-efficient self-improvement that maintains high token-efficiency.
+        </li>
+      </ul>
+
       </div>
     </section>
+
+    <!-- METHOD -->
+    <section id="method">
+      <div class="section-card">
+        <h2 class="block-title">Method</h2>
+
+        <h3>1. Decision-Theoretic Gating</h3>
+        <p>
+          SAG frames critique invocation as cost-sensitive decision-making. At each step, the agent evaluates whether the expected risk of error
+          exceeds the cost of querying critique, and invokes the critic only when the decision rule favors intervention.
+        </p>
+
+        <div class="math-block">
+          <!-- $$g_t = \mathbb{I} \left[ \mathbb{E}[\mathcal{L}_{error}] > C_{interv} \right]$$ -->
+          $$S_t = \bar{H}_t + \mathbb{I}[m_t < \delta]$$
+          $$g_t = \mathbb{I} \left[ S_t > \tau \right]$$
+        </div>
+
+        <h3>2. Robust Confidence Signals</h3>
+        <p>
+          To support stable gating across dynamic action spaces, SAG derives uncertainty from the actor’s action distribution.
+          Global ambiguity captures overall uncertainty (normalized entropy), while local ambiguity captures fine-grained confusion among top candidates
+          (e.g., a small margin between the top-1 and top-2 actions).
+        </p>
+
+        <h3>3. Online Self-Evolution</h3>
+          <img src="figure/onlinesft.gif" alt="Online Self-Evolution" class="figure-img zoomable">
+        <p>
+          SAG stores successful trajectories (especially those improved by critique) and periodically fine-tunes the actor on these interactions.
+          This enables the actor to internalize effective behaviors and gradually reduce dependence on critique during subsequent episodes.
+        </p>
+
+        <details>
+          <summary>Implementation Notes (Gate + Online SFT)</summary>
+          <div class="details-body">
+            <p style="margin-top:.2rem;">
+              SAG uses a fixed gate threshold and a margin threshold for local ambiguity, and performs periodic online SFT using a buffer of successful interactions.
+              (You can edit this block to match your final camera-ready hyperparameters.)
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video">
+      <div class="section-card">
+        <h2 class="block-title">Demonstration Video</h2>
+
+        <div class="figure-container">
+          <video class="figure-img" controls controlsList="nodownload" disablepictureinpicture preload="metadata" playsinline oncontextmenu="return false">
+            <source src="figure/SAG_video.MP4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+
+          <div class="caption">
+            Demo video for SAG
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- RESULTS -->
     <section id="results">
-      <div class="section-head"><span class="number">03</span><h2>결과 및 데모</h2></div>
-      <!-- 수정 6: 결과 설명, 이미지, 표 또는 동영상 -->
-      <p class="copy">실험 결과, 비교 이미지 또는 데모 영상을 추가해 주세요. 실제 결과와 설명을 준비한 뒤 이 문장을 교체하면 됩니다.</p>
-      <div class="visual" role="img" aria-label="결과 또는 데모 이미지 자리">
-        <strong>결과 / 데모 영역</strong>
-        <span>그래프, 예시 이미지 또는 데모를 넣을 자리입니다.</span>
+      <div class="section-card">
+        <h2 class="block-title">Results</h2>
+
+        <div class="table-tabs">
+          <button class="table-tab-btn active" data-tab="alfworld">ALFWorld</button>
+          <button class="table-tab-btn" data-tab="babyai">BabyAI</button>
+          <button class="table-tab-btn" data-tab="webshop">WebShop</button>
+        </div>
+
+        <!-- Qwen2.5-7B Results Table -->
+        <div class="model-results">
+          <h3 class="model-title">Qwen2.5-7B-Instruct</h3>
+          <div class="table-wrap" aria-label="Qwen2.5-7B Results Table">
+            <table class="results-table" data-model="qwen">
+              <thead>
+                <tr>
+                  <th class="left" style="min-width:170px;">Method</th>
+                  <th class="subhead">Succ ↑</th>
+                  <th class="subhead">#Horizon ↓</th>
+                  <th class="subhead">#Token ↓</th>
+                  <th class="subhead">Eff ↑</th>
+                  <th class="subhead">Succ ↑</th>
+                  <th class="subhead">#Horizon ↓</th>
+                  <th class="subhead">#Token ↓</th>
+                  <th class="subhead">Eff ↑</th>
+                  <th class="subhead">Succ ↑</th>
+                  <th class="subhead">#Horizon ↓</th>
+                  <th class="subhead">#Token ↓</th>
+                  <th class="subhead">Eff ↑</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td class="left">ReAct (Basic)</td>
+
+                  <td>24.6</td><td>15.8</td><td class="best">55</td><td>1.00</td>
+                  <td>36.0</td><td>7.4</td><td>55</td><td>1.00</td>
+                  <td>11.0</td><td>6.3</td><td>12</td><td>1.00</td>
+                </tr>
+
+                <tr>
+                  <td class="left">Reflexion (Deliberation)</td>
+
+                  <td>40.3</td><td>16.3</td><td>150</td><td>0.60</td>
+                  <td>41.0</td><td class="best">7.0</td><td>162</td><td>0.39</td>
+                  <td>11.5</td><td>6.8</td><td>15</td><td>0.81</td>
+                </tr>
+
+                <tr>
+                  <td class="left">Debate (Deliberation)</td>
+
+                  <td>31.3</td><td>14.3</td><td>389</td><td>0.18</td>
+                  <td>52.0</td><td>8.9</td><td>441</td><td>0.18</td>
+                  <td>20.0</td><td class="best">4.7</td><td>90</td><td>0.24</td>
+                </tr>
+
+                <tr>
+                  <td class="left">CER (Deliberation)</td>
+
+                  <td>60.5</td><td>16.4</td><td>210</td><td>0.64</td>
+                  <td>45.0</td><td>8.0</td><td>239</td><td>0.29</td>
+                  <td>16.0</td><td>5.1</td><td>11</td><td>1.50</td>
+                </tr>
+
+                <tr>
+                  <td class="left">Traj-Boost (Deliberation)</td>
+
+                  <td>56.0</td><td>12.9</td><td>272</td><td>0.46</td>
+                  <td>44.0</td><td>10.0</td><td>85</td><td>0.80</td>
+                  <td>24.5</td><td>5.1</td><td>12</td><td>2.19</td>
+                </tr>
+
+                <tr>
+                  <td class="left">Retrospex (Critic)</td>
+
+                  <td>70.2</td><td class="best">10.5</td><td>94</td><td>1.67</td>
+                  <td>42.0</td><td>9.5</td><td class="best">50</td><td>1.30</td>
+                  <td>20.0</td><td>5.9</td><td class="best">6</td><td>3.58</td>
+                </tr>
+
+                <tr>
+                  <td class="left">LAC (Critic)</td>
+
+                  <td>61.2</td><td>14.2</td><td>339</td><td>0.40</td>
+                  <td>47.0</td><td>10.5</td><td>436</td><td>0.17</td>
+                  <td>25.0</td><td>6.5</td><td>82</td><td>0.32</td>
+                </tr>
+
+                <tr class="ours divider">
+                  <td class="left">Ours (SAG) (Critic)</td>
+
+                  <td class="best">78.3</td><td>11.4</td><td>56</td><td class="best">3.10</td>
+                  <td class="best">70.0</td><td>8.1</td><td>78</td><td class="best">1.38</td>
+                  <td class="best">37.0</td><td>5.8</td><td>9</td><td class="best">4.55</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="table-note" style="margin-bottom:2rem;">
+          <strong>Table.</strong> Main results across ALFWorld, BabyAI, and WebShop.
+          We report success (Succ), interaction horizon (#Horizon), token usage (#Token), and normalized efficiency (Eff).
+          SAG achieves a strong success–cost trade-off while maintaining token budgets close to no-critique baselines.
+        </div>
+
+
+        <!-- Ablation table: numbers pulled from the zip/latex -->
+        <div id="ablation-study"></div>
+        <details>
+          <summary>Ablation Study (ALFWorld) - Click to open</summary>
+          <div class="details-body">
+            <p style="margin-top:.2rem;">
+              Removing either global or local ambiguity degrades performance, while always-on critique incurs substantially higher token cost.
+            </p>
+
+            <table>
+              <thead>
+                <tr>
+                  <th>Global</th>
+                  <th>Local</th>
+                  <th>Variant</th>
+                  <th>Succ ↑</th>
+                  <th>#Horizon ↓</th>
+                  <th>#Token ↓</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td>✓</td>
+                  <td>✓</td>
+                  <td><strong>Full (SAG)</strong></td>
+                  <td><strong>78.3</strong></td>
+                  <td>11.4</td>
+                  <td>56</td>
+                </tr>
+                <tr>
+                  <td>✗</td>
+                  <td>✓</td>
+                  <td>w/o global ambiguity</td>
+                  <td>77.6</td>
+                  <td>12.1</td>
+                  <td>51</td>
+                </tr>
+                <tr>
+                  <td>✓</td>
+                  <td>✗</td>
+                  <td>w/o local ambiguity</td>
+                  <td>74.6</td>
+                  <td>11.4</td>
+                  <td>52</td>
+                </tr>
+                <tr>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>Always (no gating)</td>
+                  <td>62.0</td>
+                  <td>17.4</td>
+                  <td>112</td>
+                </tr>
+                <tr>
+                  <td>✗</td>
+                  <td>✗</td>
+                  <td>w/o critic</td>
+                  <td>53.0</td>
+                  <td>17.3</td>
+                  <td>55</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <div id="case-study"></div>
+        <details class="case-details">
+        <summary>Case Study (ALFWorld) - Click to open</summary>
+        <div class="details-body">
+          <div class="case-card">
+            <div class="case-head">
+              
+            </div>
+
+            <div class="case-body">
+              <pre class="case-pre">You are in the middle of a room. Looking quickly around you, you see
+an armchair 1, a cabinet 4, a cabinet 3, a cabinet 2, a cabinet 1, a drawer 5,
+a drawer 4, a drawer 3, a drawer 2, a drawer 1, a dresser 1, a garbagecan 1,
+a safe 1, a shelf 12, a shelf 11, a shelf 10, a shelf 9, a shelf 8, a shelf 7, a shelf 6,
+a shelf 5, a shelf 4, a shelf 3, a shelf 2, a shelf 1, a sidetable 1, and a sofa 1.
+Your task is to: put two pillow in sofa.
+
+&gt; [Agent] Act 1: think: To solve the task, I need to find and take the first pillow, then put it in sofa, then find and take the second pillow, then put it in sofa.
+
+OK.
+
+&gt; [Agent] Act 2: think: First I need to find the first pillow. A pillow is more likely to appear in armchair (1), cabinet (1-4), drawer (1-5), dresser (1), sidetable (1), sofa (1). I can check one by one, starting with armchair 1.
+
+OK.
+
+&gt; [Agent] Act 3: go to armchair 1
+
+You arrive at armchair 1. On the armchair 1, you see a cellphone 2, a pillow 2, and a pillow 1.
+
+&gt; [Agent] Act 4: take pillow 1 from armchair 1
+
+You pick up the pillow 1 from the armchair 1.
+
+&gt; [Agent] Act 5: think: Now I find the first pillow (1). Next, I need to put it in sofa 1.
+
+OK.
+
+&gt; [Agent] Act 6: go to sofa 1
+
+You arrive at sofa 1. On the sofa 1, you see a newspaper 3.</pre>
+
+<div class="hl">
+  <pre class="case-pre" style="margin:0;">&gt; [Gate] global ambiguity H̄t = 0.20, local margin mt = 0.06 &lt; δ
+&gt; [Gate] score St = H̄t + I[mt &lt; δ] = 1.20 &gt; τ  (VoI proxy &gt; cost) ⇒ critic invoked
+
+&gt; [Critic] Suggested action: move pillow 1 to sofa 1
+&gt; [Critic] Rationale: You are close, but you forgot to put the first pillow in the sofa before searching for the second one. Putting the first pillow in the sofa now reduces the risk of forgetting it later.</pre>
+</div>
+
+<pre class="case-pre">&gt; [Agent] Act 7: move pillow 1 to sofa 1
+
+On the sofa 1, you see a newspaper 3, and a pillow 1.
+
+&gt; [Agent] Act 8: go to armchair 1
+
+You arrive at armchair 1. On the armchair 1, you see a cellphone 2, and a pillow 2.
+
+&gt; [Agent] Act 9: take pillow 2 from armchair 1
+
+You pick up the pillow 2 from the armchair 1.
+
+&gt; [Agent] Act 10: think: Now I find the second pillow (2). Next, I need to put it in sofa 1.
+
+OK.
+
+&gt; [Agent] Act 11: go to sofa 1
+
+You arrive at sofa 1. On the sofa 1, you see a newspaper 3, and a pillow 1.
+
+&gt; [Agent] Act 12: move pillow 2 to sofa 1
+
+You move the pillow 2 to the sofa 1.
+
+Outcome: success</pre>
+
+
+              <div class="hl">
+                <pre class="case-pre" style="margin:0;">&gt; [SAG] Successful episode. Trajectory is added to the self-improvement buffer.</pre>
+              </div>
+            </div>
+
+            <div class="case-actions">
+              <span class="chip">Selective critique</span>
+              <span class="chip">Global entropy (H̄)</span>
+              <span class="chip">Local margin (m)</span>
+              <span class="chip">Online self-improvement</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+
       </div>
     </section>
-    <section id="resources">
-      <div class="section-head"><span class="number">04</span><h2>자료</h2></div>
-      <!-- 수정 7: 논문, 코드, 데이터 링크를 추가하세요. -->
-      <div class="resources">
-        <a class="resource" href="https://github.com/h2w1/SAG"><strong>GitHub 저장소 ↗</strong><span>프로젝트 코드와 자료</span></a>
-        <div class="resource"><strong>논문 / 문서</strong><span>자료를 준비한 뒤 링크를 추가하세요</span></div>
-        <div class="resource"><strong>데이터 / 추가 자료</strong><span>자료를 준비한 뒤 링크를 추가하세요</span></div>
-      </div>
-    </section>
-  </main>
-  <footer class="wrap"><div class="foot"><span>SAG · 프로젝트 소개 페이지</span><a href="#top">맨 위로 ↑</a></div></footer>
+
+  </div>
+
+  <footer></footer>
+
+  <script>
+    // Table tab switching
+    function initTableTabs() {
+      const tables = document.querySelectorAll('.results-table');
+      
+      // Initialize: show ALFWorld by default
+      tables.forEach(table => {
+        showTableEnv('alfworld', table);
+      });
+      
+      // Tab button listeners
+      document.querySelectorAll('.table-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.table-tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          
+          tables.forEach(table => {
+            showTableEnv(btn.dataset.tab, table);
+          });
+        });
+      });
+    }
+    
+    function showTableEnv(env, table) {
+      // Column indices (after removing Type column):
+      // 0: Method
+      // 1-4: ALFWorld (Succ, Horizon, Token, Eff)
+      // 5-8: BabyAI (Succ, Horizon, Token, Eff)
+      // 9-12: WebShop (Succ, Horizon, Token, Eff)
+      
+      const envs = {
+        alfworld: { start: 1, end: 5 },
+        babyai: { start: 5, end: 9 },
+        webshop: { start: 9, end: 13 }
+      };
+      
+      const thead = table.querySelector('thead');
+      const tbody = table.querySelector('tbody');
+      
+      // Update header visibility
+      if (thead) {
+        const headerCells = thead.querySelectorAll('th');
+        headerCells.forEach((cell, idx) => {
+          if (idx === 0) {
+            // Always show Method column
+            cell.style.display = '';
+          } else if (idx >= envs[env].start && idx < envs[env].end) {
+            cell.style.display = '';
+          } else if (idx >= 1) {
+            cell.style.display = 'none';
+          }
+        });
+      }
+      
+      // Update body rows
+      if (tbody) {
+        const rows = tbody.querySelectorAll('tr');
+        rows.forEach(row => {
+          const cells = row.querySelectorAll('td');
+          
+          cells.forEach((cell, idx) => {
+            if (idx === 0) {
+              cell.style.display = '';
+            } else if (idx >= envs[env].start && idx < envs[env].end) {
+              cell.style.display = '';
+            } else if (idx >= 1) {
+              cell.style.display = 'none';
+            }
+          });
+        });
+      }
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initTableTabs);
+
+    // Image lightbox (click to enlarge)
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest(".zoomable");
+      if (!img) return;
+
+      const overlay = document.createElement("div");
+      overlay.className = "lightbox";
+      overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+      overlay.addEventListener("click", () => overlay.remove());
+      document.body.appendChild(overlay);
+    });
+  </script>
 </body>
 </html>
