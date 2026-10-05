@@ -67,9 +67,32 @@
     }
 
     .authors{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:.35rem 1.15rem;
       font-size:1.05rem;
-      color:rgba(43, 27, 58, 0.78);
-      margin-bottom:0.25rem;
+      font-weight:600;
+      color:rgba(43, 27, 58, 0.88);
+      margin-top:1.2rem;
+      line-height:1.65;
+    }
+
+    .affiliations{
+      max-width:780px;
+      margin:.6rem auto 0;
+      font-size:.91rem;
+      line-height:1.7;
+      color:rgba(43, 27, 58, 0.72);
+    }
+
+    .affiliations sup{ margin-right:.25em; }
+
+    .correspondence{
+      margin-top:.6rem;
+      font-size:.85rem;
+      line-height:1.6;
+      color:rgba(43, 27, 58, 0.64);
     }
 
     a{ color:var(--accent-strong); text-decoration:none; }
@@ -754,8 +777,19 @@
 
     <header>
       <h1>Selective Critique for Cost-Aware LLM Agents in Long-Horizon Decision Making</h1>
-      <!-- TODO: Add author names and affiliations. -->
-      <div class="authors">Authors &amp; affiliations [TBD]</div>
+      <div class="authors" aria-label="Authors">
+        <span>Heewon Park<sup>1</sup></span>
+        <span>Somin Im<sup>2</sup></span>
+        <span>Minhae Kwon<sup>1*</sup></span>
+      </div>
+      <div class="affiliations" aria-label="Affiliations">
+        <div><sup>1</sup>Department of Electrical and Computer Engineering, Sungkyunkwan University, Republic of Korea</div>
+        <div><sup>2</sup>Soongsil University, Republic of Korea</div>
+      </div>
+      <div class="correspondence">
+        <sup>*</sup> Corresponding author: Minhae Kwon
+        (<a href="mailto:minhae.kwon@skku.edu">minhae.kwon@skku.edu</a>)
+      </div>
 
       <div class="links">
         <!-- TODO: Add the paper URL and remove the btn-disabled class. -->
