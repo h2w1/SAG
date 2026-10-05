@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 수정 1: 브라우저 탭에 표시할 제목 -->
+  <title>SAG | 프로젝트 소개</title>
+  <meta name="description" content="SAG 프로젝트 소개 페이지입니다.">
+  <style>
+    :root { --bg:#faf9f6; --ink:#202b36; --muted:#65707b; --line:#e4e5e0; --accent:#27634c; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; line-height:1.75; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; }
+    .wrap { width:min(1080px,calc(100% - 48px)); margin:auto; }
+    header { background:var(--bg); border-bottom:1px solid var(--line); }
+    .nav { min-height:80px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-size:24px; font-weight:800; letter-spacing:-1px; }
+    nav { display:flex; gap:28px; font-size:14px; color:var(--muted); }
+    nav a:hover { color:var(--accent); }
+    .hero { padding:96px 0 76px; }
+    .eyebrow { color:var(--accent); font-size:12px; letter-spacing:3px; font-weight:700; text-transform:uppercase; }
+    h1 { margin:20px 0; font-size:clamp(42px,6vw,72px); line-height:1.15; letter-spacing:-2px; font-weight:750; }
+    .lead { max-width:680px; color:var(--muted); font-size:19px; }
+    .authors { margin-top:28px; color:var(--muted); font-size:14px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:8px; padding:11px 22px; font-size:14px; font-weight:650; }
+    .button.primary { background:var(--accent); color:white; border-color:var(--accent); }
+    .button:hover { opacity:.8; }
+    .visual { min-height:300px; padding:40px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px; border:1px dashed #b9c5bc; border-radius:14px; background:#edf1eb; color:#6b7e71; text-align:center; }
+    .visual .symbol { font-size:48px; font-weight:300; line-height:1; }
+    .visual strong { color:#3b5546; font-size:18px; }
+    .visual span { max-width:520px; font-size:14px; }
+    section { padding:64px 0; border-bottom:1px solid var(--line); }
+    .section-head { display:flex; gap:18px; align-items:baseline; margin-bottom:22px; }
+    .number { color:var(--accent); font-size:12px; font-weight:700; letter-spacing:1px; }
+    h2 { margin:0; font-size:28px; letter-spacing:-.6px; }
+    p { margin:0 0 16px; }
+    .copy { max-width:800px; color:var(--muted); }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .card { background:white; border:1px solid var(--line); border-radius:12px; padding:28px; }
+    .card h3 { font-size:18px; margin:0 0 12px; }
+    .card p { margin:0; color:var(--muted); font-size:14px; }
+    .resources { display:grid; gap:12px; }
+    .resource { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:20px 24px; background:white; border:1px solid var(--line); border-radius:10px; }
+    .resource span { color:var(--muted); font-size:13px; }
+    .resource:hover { border-color:var(--accent); }
+    footer { padding:32px 0; color:var(--muted); font-size:13px; }
+    .foot { display:flex; justify-content:space-between; gap:20px; }
+    @media(max-width:700px) {
+      .wrap { width:calc(100% - 36px); }
+      .nav { min-height:72px; gap:16px; }
+      nav { gap:16px; font-size:12px; }
+      .hero { padding:64px 0 48px; }
+      .lead { font-size:17px; }
+      .visual { min-height:220px; padding:28px; }
+      section { padding:44px 0; }
+      .cards { grid-template-columns:1fr; }
+      .resource,.foot { align-items:flex-start; flex-direction:column; gap:6px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body id="top">
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="SAG 홈">SAG<span style="color:var(--accent)">.</span></a>
+      <nav aria-label="주요 메뉴">
+        <a href="#overview">프로젝트 소개</a>
+        <a href="#highlights">주요 내용</a>
+        <a href="#resources">자료</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="hero">
+      <div class="eyebrow">SAG · Project Website</div>
+      <!-- 수정 2: 프로젝트 이름, 한 줄 소개, 이름과 소속 -->
+      <h1>프로젝트 제목을<br>입력하세요.</h1>
+      <p class="lead">프로젝트를 한두 문장으로 소개해 주세요. 어떤 문제를 해결하고, 어떤 아이디어를 제안하는지 적으면 좋습니다.</p>
+      <p class="authors">이름 1 · 이름 2 · 이름 3<br>소속 / 기관명을 입력하세요</p>
+      <div class="actions">
+        <a class="button primary" href="#overview">프로젝트 살펴보기 ↗</a>
+        <a class="button" href="https://github.com/h2w1/SAG">GitHub ↗</a>
+      </div>
+    </div>
+    <!-- 수정 3: 이 영역을 <img src="./assets/overview.png" alt="프로젝트 개요" style="width:100%;border-radius:14px;">로 교체할 수 있습니다. -->
+    <div class="visual" role="img" aria-label="프로젝트 대표 이미지 자리">
+      <div class="symbol" aria-hidden="true">＋</div>
+      <strong>프로젝트 대표 이미지</strong>
+      <span>대표 이미지, 방법 개요 그림 또는 데모 화면을 넣을 자리입니다.</span>
+    </div>
+    <section id="overview">
+      <div class="section-head"><span class="number">01</span><h2>프로젝트 소개</h2></div>
+      <!-- 수정 4: 프로젝트 설명 또는 논문 초록 -->
+      <div class="copy">
+        <p>여기에 프로젝트 소개 또는 논문 초록을 입력하세요. 연구 배경, 해결하려는 문제, 제안하는 접근 방법을 설명할 수 있습니다.</p>
+        <p>이 페이지는 내용을 채워 넣기 위한 더미 템플릿입니다. 아래 제목과 문단을 프로젝트에 맞게 수정해 주세요.</p>
+      </div>
+    </section>
+    <section id="highlights">
+      <div class="section-head"><span class="number">02</span><h2>주요 내용</h2></div>
+      <!-- 수정 5: 주요 아이디어 또는 기여 세 가지 -->
+      <div class="cards">
+        <article class="card"><h3>핵심 아이디어 1</h3><p>첫 번째 핵심 아이디어 또는 프로젝트의 특징을 설명해 주세요.</p></article>
+        <article class="card"><h3>핵심 아이디어 2</h3><p>제안한 방법이나 구현의 특징을 설명해 주세요.</p></article>
+        <article class="card"><h3>핵심 아이디어 3</h3><p>주요 결과 또는 기대 효과를 설명해 주세요.</p></article>
+      </div>
+    </section>
+    <section id="results">
+      <div class="section-head"><span class="number">03</span><h2>결과 및 데모</h2></div>
+      <!-- 수정 6: 결과 설명, 이미지, 표 또는 동영상 -->
+      <p class="copy">실험 결과, 비교 이미지 또는 데모 영상을 추가해 주세요. 실제 결과와 설명을 준비한 뒤 이 문장을 교체하면 됩니다.</p>
+      <div class="visual" role="img" aria-label="결과 또는 데모 이미지 자리">
+        <strong>결과 / 데모 영역</strong>
+        <span>그래프, 예시 이미지 또는 데모를 넣을 자리입니다.</span>
+      </div>
+    </section>
+    <section id="resources">
+      <div class="section-head"><span class="number">04</span><h2>자료</h2></div>
+      <!-- 수정 7: 논문, 코드, 데이터 링크를 추가하세요. -->
+      <div class="resources">
+        <a class="resource" href="https://github.com/h2w1/SAG"><strong>GitHub 저장소 ↗</strong><span>프로젝트 코드와 자료</span></a>
+        <div class="resource"><strong>논문 / 문서</strong><span>자료를 준비한 뒤 링크를 추가하세요</span></div>
+        <div class="resource"><strong>데이터 / 추가 자료</strong><span>자료를 준비한 뒤 링크를 추가하세요</span></div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><div class="foot"><span>SAG · 프로젝트 소개 페이지</span><a href="#top">맨 위로 ↑</a></div></footer>
+</body>
+</html>
